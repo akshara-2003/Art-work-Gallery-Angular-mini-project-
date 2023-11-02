@@ -1,0 +1,51 @@
+<div ng-controller="CarouselCtrl as carousel">
+  <div class="carousel-wrapper">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators text-center">
+        <li *ngFor="let slide of slides; let i=index" data-target="#myCarousel" [attr.data-slide-to]="i" [class.active]="i === currentSlide"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div *ngFor="let slide of slides; let i=index" class="item" [class.active]="i === currentSlide">
+          <img [src]="slide.image" [alt]="slide.caption">
+          <div class="carousel-caption">
+            <h3>{{ slide.caption }}</h3>
+            <p>{{ slide.description }}</p>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div>
+  
+  <!-- <h2 class="text-center">Home to a collection of art that spans centuries and the globe, the Art Institute of Chicago is located in the heart of the city—and is one of Tripadvisor’s “Best of the Best” US attractions of 2023.</h2> -->
+  <h1 style="text-align: center;">Welcome to ART INSTITVTE CHICAGO</h1>
+  <div class="card-cont">
+    
+    <div class="col-md-4">
+        <div class="info-box">
+            <h4>Our Collection</h4>
+            <p>The Art Institute of Chicago houses one of the largest and most significant collections of art in the world. Our collection spans thousands of years and includes works from diverse cultures around the globe.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-box">
+            <h4>Exhibitions</h4>
+            <p>Experience our exciting exhibitions, showcasing the very best in art from all corners of the world. From ancient artifacts to contemporary art, we have something for everyone.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-box">
+            <h4>Events & Programs</h4>
+            <p>Join us for a wide range of events and programs, including lectures, workshops, tours, and more. Our events are designed to engage, inform, and inspire visitors of all ages.</p>
+        </div>
+    </div>
+  </div>
+</div>
+

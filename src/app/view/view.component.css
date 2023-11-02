@@ -1,0 +1,30 @@
+  h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+    text-align: center;
+    margin: 15px;
+    line-height: 50px;
+  }
+  
+  h2 {
+    text-decoration: underline;
+  }
+  
+  .card {
+    border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  }
+  
+  .card-img-top {
+    height: 40rem;
+  }
+  
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 40px;
+    }
+    
+    .card-img-top {
+      height: auto;
+    }
+  }

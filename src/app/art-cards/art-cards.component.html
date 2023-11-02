@@ -1,0 +1,42 @@
+<form class="form " [formGroup]="searchForm" style="display: flex; justify-content: center;">
+  <mat-form-field class="mx-auto" style="width: 700px; color: rgb(192, 157, 220);">
+    <mat-label>Search..</mat-label>
+    <input matInput formControlName="query">
+  </mat-form-field>
+</form>
+<div class="cont">
+  <div class="spinner" *ngIf="this.artworkService.load==false">
+    <i class="fa fa-spinner fa-spin"></i>
+  </div>
+  <div class="card" *ngFor="let artwork of paginatorArtworkList">
+    
+    <img class="card-img-top" src="https://www.artic.edu/iiif/2/{{artwork.image_id}}/full/843,/0/default.jpg" alt="" >
+    <div class="card-body d-flex flex-column justify-content-between">
+      <h4>{{ artwork.title }}</h4>
+        <div class="d-flex justify-content-around icons" >
+          <div>
+            <i class="fa favourite-icon" [class.fa-heart]="favouriteService.isFav(artwork)" [class.fa-heart-o]="!this.favouriteService.isFav(artwork)" (click)="toggleFavorite(artwork)" style="color: rgb(195, 0, 255); font-size: 20px; "></i>
+            <span class="d-block">Favorite</span>
+          </div>
+          <div (click)="artworkService.share(artwork.id)" >
+            <i class="bi bi-share-fill share-icon" style="color: rgb(195, 0, 255); font-size: 20px; " (click)="artworkService.share(artwork.id)"></i>
+            <span class="d-block">Share</span>
+          </div>
+          <div>
+            <a routerLink="/artWorks/{{artwork.id}}"><i class="bi bi-three-dots-vertical view-more-icon" style="color: rgb(195, 0, 255); font-size: 20px; " ></i></a>
+            <span class="d-block">View</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="paginator-container" style="display: flex; justify-content: center;">
+  <mat-paginator [length]="total_length"
+              [pageSizeOptions]="[4,8,12, 16, 20, 24, 100]"
+              (page)="pageVariablesChanged($event)"
+              aria-label="Select page"
+              class="mx-auto">
+</mat-paginator>
+</div>
+
+
